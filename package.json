@@ -1,0 +1,35 @@
+{
+  "name": "nexklyp",
+  "version": "1.0.0",
+  "description": "this is the source code for Nexklyp social media app, it's like youtube, but without censorship, no bank data, no ID verification, no ads during the videos",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiro997/Nexklyp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shiro997/Nexklyp/issues"
+  },
+  "homepage": "https://github.com/shiro997/Nexklyp#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "child_process": "^1.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.0",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.7",
+    "path": "^0.12.7",
+    "uuid": "^13.0.0"
+  }
+}
