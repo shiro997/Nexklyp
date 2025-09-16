@@ -27,27 +27,6 @@ const VIDEO_DIR = path.join(__dirname, 'static', 'videos');
 fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 fs.mkdirSync(VIDEO_DIR, { recursive: true });
 
-
-
-// --- 3. Modelos de Mongoose (Schemas) ---
-// Schema para Usuarios
-const UserSchema = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-}, { timestamps: true });
-const User = mongoose.model('User', UserSchema);
-
-// Schema para Videos
-const VideoSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    description: { type: String },
-    stream_url: { type: String, required: true },
-    uploader: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-}, { timestamps: true });
-const Video = mongoose.model('Video', VideoSchema);
-
-
 // --- Configuración de Multer (sin cambios) ---
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, UPLOAD_DIR),
