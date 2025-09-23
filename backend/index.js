@@ -3,6 +3,7 @@ const express = require('express');
 const multer = require('multer');
 const db = require('./db/database');
 const apiroutes = require('./Routes/api.routes');
+const authMiddleware = require('./Middleware/auth.middleware')
 const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
@@ -45,7 +46,7 @@ app.use('',apiroutes);
 // --- 6. Rutas de Videos (Actualizadas con Mongoose) ---
 
 // [POST] /api/upload
-/*app.post('/api/upload', authMiddleware, upload.single('video'), (req, res) => {
+app.post('/api/upload', authMiddleware.authMiddleware, upload.single('video'), (req, res) => {
     const { title, description } = req.body;
     const videoFile = req.file;
     if (!videoFile) return res.status(400).json({ message: 'No se subió ningún archivo.' });
@@ -97,7 +98,7 @@ app.get('/api/videos/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener el video.' });
     }
-});*/
+});
 
 // --- 7. Iniciar el Servidor ---
 app.listen(PORT, () => {
